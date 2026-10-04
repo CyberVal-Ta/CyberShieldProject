@@ -1,21 +1,33 @@
-// password strength checker - used on password.html
+// password strength checker - runs on tools.html
 function checkPw() {
   const pw = document.getElementById("pw").value;
   const res = document.getElementById("result");
-  if (!res) return;                         // bail if not on that page
-  if (!pw) { res.textContent = "Start typing..."; return; }
+  if (!res) return;
+
+  if (!pw) {
+    res.textContent = "Start typing to see a score.";
+    return;
+  }
 
   let score = 0;
   if (pw.length >= 8) score++;
+  if (pw.length >= 12) score++;
   if (/[A-Z]/.test(pw)) score++;
   if (/[0-9]/.test(pw)) score++;
   if (/[^A-Za-z0-9]/.test(pw)) score++;
 
-  const labels = ["Very Weak 🔴", "Weak 🟠", "Okay 🟡", "Strong 🟢", "Very Strong 🟢"];
-  res.textContent = "Strength: " + labels[score];
+  const labels = [
+    "Very weak — do not use.",
+    "Weak — add length and variety.",
+    "Reasonable — but could be stronger.",
+    "Strong.",
+    "Very strong."
+  ];
+
+  res.textContent = "Score: " + labels[score];
 }
 
-// phishing scanner - used on phishing.html
+// phishing scanner - runs on tools.html
 function scanEmail() {
   const el = document.getElementById("email");
   const report = document.getElementById("report");
@@ -23,49 +35,21 @@ function scanEmail() {
 
   const txt = el.value.toLowerCase();
   const flags = [];
-  if (txt.includes("urgent")) flags.push("⚠ Uses urgency language");
-  if (txt.includes("click here")) flags.push("⚠ 'Click here' link");
-  if (txt.includes("verify your account")) flags.push("⚠ Account verification request");
-  if (/bit\.ly|tinyurl|\.ru\b/.test(txt)) flags.push("⚠ Suspicious URL shortener / domain");
-  if (txt.includes("password")) flags.push("⚠ Mentions password");
 
-  report.textContent = flags.length
-    ? flags.join("\n")
-    : "✅ No obvious red flags detected (still be cautious)";
+  if (txt.includes("urgent")) flags.push("- Uses urgency language.");
+  if (txt.includes("click here")) flags.push("- Contains 'click here'.");
+  if (txt.includes("verify your account")) flags.push("- Asks you to verify your account.");
+  if (/bit\.ly|tinyurl|\.ru\b/.test(txt)) flags.push("- Contains a shortened or suspicious URL.");
+  if (txt.includes("password")) flags.push("- Mentions passwords.");
+  if (txt.includes("suspend")) flags.push("- Threatens suspension of your account.");
+
+  if (flags.length === 0) {
+    report.textContent =
+      "No obvious indicators found. This does not mean the email is safe — " +
+      "always verify the sender through a separate channel.";
+  } else {
+    report.textContent =
+      "Indicators found:\n" + flags.join("\n") +
+      "\n\nDo not click links or reply. Report to your security team.";
+  }
 }
-
-// live activity feed on index.html - just flavour
-function startActivityFeed() {
-  const feed = document.getElementById("activityFeed");
-  if (!feed) return;   // not on homepage, skip
-
-  const events = [
-    "Port scan detected from 10.0.4.22 — blocked",
-    "MFA challenge passed for user j.smith",
-    "Failed login attempt on admin account",
-    "Firewall rules updated",
-    "Suspicious email quarantined",
-    "Password policy audit completed",
-    "Endpoint flagged for outbound traffic spike",
-    "VPN session established from 203.0.113.9",
-    "Log rotation completed",
-    "Threat intelligence feed synchronised"
-  ];
-
-  // random interval between 3-7 sec
-  setInterval(() => {
-    const li = document.createElement("li");
-    const msg = events[Math.floor(Math.random() * events.length)];
-    const t = new Date().toLocaleTimeString();
-    li.textContent = `[${t}] ${msg}`;
-    feed.prepend(li);   // newest at top
-
-    // keep list short
-    while (feed.children.length > 15) {
-      feed.removeChild(feed.lastChild);
-    }
-  }, 4000);
-}
-
-// kick off whichever page we're on
-document.addEventListener("DOMContentLoaded", startActivityFeed);

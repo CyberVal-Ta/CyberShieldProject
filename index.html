@@ -3,88 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CyberShield — Security Operations Dashboard</title>
+  <title>CyberShield — Security Operations Console</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- top nav bar, same on every page -->
+  <header class="banner">
+    <div class="banner-overlay">
+      <h1>CyberShield</h1>
+      <p class="tagline">Security Operations Console — Northwind Health</p>
+    </div>
+  </header>
+
   <nav class="navbar">
-    <div class="logo">🛡️ CyberShield</div>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="password.html">Password</a></li>
-      <li><a href="phishing.html">Phishing</a></li>
-      <li><a href="incidents.html">Incidents</a></li>
-      <li><a href="awareness.html">Awareness</a></li>
-    </ul>
+    <a href="index.html" class="active">Home</a>
+    <a href="tools.html">Tools</a>
+    <a href="incidents.html">Incidents</a>
+    <a href="awareness.html">Awareness</a>
+    <a href="about.html">About</a>
   </nav>
 
-  <main>
+  <main class="layout">
 
-    <header class="page-header">
-      <h1>Security Operations Dashboard</h1>
-      <p class="subtitle">Real-time overview of organisational security posture</p>
-    </header>
+    <section class="panel">
+      <h2>Current Security State</h2>
+      <p class="muted">Snapshot as of this session. Numbers are simulated.</p>
 
-    <!-- status cards row - these are the traffic light things -->
-    <section class="status-grid">
-      <div class="status-card ok">
-        <span class="status-dot green"></span>
-        <h3>Systems</h3>
-        <p>Secure</p>
-      </div>
-      <div class="status-card warn">
-        <span class="status-dot yellow"></span>
-        <h3>Alerts</h3>
-        <p>3 pending review</p>
-      </div>
-      <div class="status-card crit">
-        <span class="status-dot red"></span>
-        <h3>Incidents</h3>
-        <p>1 critical</p>
-      </div>
-      <div class="status-card info">
-        <span class="status-dot blue"></span>
-        <h3>Risk Score</h3>
-        <p id="riskScore">72 / 100</p>
-      </div>
+      <ul class="stat-list">
+        <li><span class="label">Systems monitored</span><span class="value">142</span></li>
+        <li><span class="label">Open alerts</span><span class="value warn">3</span></li>
+        <li><span class="label">Active incidents</span><span class="value crit">1</span></li>
+        <li><span class="label">Mean time to respond</span><span class="value">14 min</span></li>
+        <li><span class="label">Organisation risk score</span><span class="value">72 / 100</span></li>
+      </ul>
+
+      <p class="hint">
+        Risk score is a weighted summary of open alerts, unresolved incidents,
+        and MFA coverage across staff accounts.
+      </p>
     </section>
 
-    <!-- quick access tiles to the tools -->
-    <section class="tool-grid">
-      <a class="tool-card" href="password.html">
-        <h3>Password Checker</h3>
-        <p>Test password strength against common attack patterns.</p>
-      </a>
-      <a class="tool-card" href="phishing.html">
-        <h3>Phishing Detector</h3>
-        <p>Paste a suspicious email and scan for red flags.</p>
-      </a>
-      <a class="tool-card" href="incidents.html">
-        <h3>Incident Reports</h3>
-        <p>View simulated security incidents and their status.</p>
-      </a>
-      <a class="tool-card" href="awareness.html">
-        <h3>Awareness</h3>
-        <p>Learn about MFA, phishing, and password hygiene.</p>
-      </a>
-    </section>
+    <section class="panel">
+      <h2>What This Console Is For</h2>
+      <p>
+        This is an internal tool for a fictional healthcare organisation.
+        It exists so staff and the security team can answer three questions quickly:
+      </p>
+      <ol class="purpose-list">
+        <li>Is anything wrong right now?</li>
+        <li>Can I safely use this password / trust this email?</li>
+        <li>What does a real attack look like so I can spot one?</li>
+      </ol>
 
-    <!-- live activity feed, updated by JS -->
-    <section class="activity">
-      <h2>Live Activity</h2>
-      <ul id="activityFeed" class="feed">
-        <li>System initialised ✔</li>
+      <h3>Where to go next</h3>
+      <ul class="link-list">
+        <li><a href="tools.html">Tools</a> — test a password or scan a suspicious email</li>
+        <li><a href="incidents.html">Incidents</a> — see the current incident log</li>
+        <li><a href="awareness.html">Awareness</a> — short guidance on common attacks</li>
       </ul>
     </section>
 
   </main>
 
   <footer class="footer">
-    <p>CyberShield — Educational simulated SOC dashboard</p>
+    CyberShield is an educational simulation. No real systems are monitored.
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>

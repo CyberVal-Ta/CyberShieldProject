@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberShield — Tools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="banner">
+    <div class="banner-overlay">
+      <h1>CyberShield</h1>
+      <p class="tagline">Security Operations Console — Northwind Health</p>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="tools.html" class="active">Tools</a>
+    <a href="incidents.html">Incidents</a>
+    <a href="awareness.html">Awareness</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <main class="layout">
+
+    <section class="panel">
+      <h2>Password Strength Checker</h2>
+      <p class="muted">
+        Type a password to see how it would score against a basic policy.
+        Nothing is sent anywhere — this runs entirely in your browser.
+      </p>
+
+      <div class="field">
+        <label for="pw">Password</label>
+        <input id="pw" type="password" placeholder="Enter a password" oninput="checkPw()">
+      </div>
+
+      <div id="result" class="output">Start typing to see a score.</div>
+    </section>
+
+    <section class="panel">
+      <h2>Phishing Email Scanner</h2>
+      <p class="muted">
+        Paste the contents of a suspicious email. The scanner looks for
+        common indicators: urgency language, suspicious links, requests
+        to verify accounts, and so on.
+      </p>
+
+      <div class="field">
+        <label for="email">Email contents</label>
+        <textarea id="email" rows="7" placeholder="Paste email body here..."></textarea>
+      </div>
+
+      <button onclick="scanEmail()">Scan</button>
+      <div id="report" class="output"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    CyberShield is an educational simulation. No real systems are monitored.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
