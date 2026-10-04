@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CyberShield — Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberShield — Security Operations Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- top nav bar, same on every page -->
   <nav class="navbar">
-    <div class="logo">CyberShield</div>
+    <div class="logo">🛡️ CyberShield</div>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="password.html">Password</a></li>
       <li><a href="phishing.html">Phishing</a></li>
       <li><a href="incidents.html">Incidents</a></li>
@@ -18,14 +21,70 @@
   </nav>
 
   <main>
-    <h1>CyberShield Security Dashboard</h1>
-    <p>Updated by Member 1</p>
-    <section class="status">
-        <p>Updated by Member 2</p>
-      <p>🟢 Systems: Secure</p>
-      <p>🟡 Alerts: 3 (review required)</p>
-      <p>🔴 Incidents: 1 (critical)</p>
+
+    <header class="page-header">
+      <h1>Security Operations Dashboard</h1>
+      <p class="subtitle">Real-time overview of organisational security posture</p>
+    </header>
+
+    <!-- status cards row - these are the traffic light things -->
+    <section class="status-grid">
+      <div class="status-card ok">
+        <span class="status-dot green"></span>
+        <h3>Systems</h3>
+        <p>Secure</p>
+      </div>
+      <div class="status-card warn">
+        <span class="status-dot yellow"></span>
+        <h3>Alerts</h3>
+        <p>3 pending review</p>
+      </div>
+      <div class="status-card crit">
+        <span class="status-dot red"></span>
+        <h3>Incidents</h3>
+        <p>1 critical</p>
+      </div>
+      <div class="status-card info">
+        <span class="status-dot blue"></span>
+        <h3>Risk Score</h3>
+        <p id="riskScore">72 / 100</p>
+      </div>
     </section>
+
+    <!-- quick access tiles to the tools -->
+    <section class="tool-grid">
+      <a class="tool-card" href="password.html">
+        <h3>Password Checker</h3>
+        <p>Test password strength against common attack patterns.</p>
+      </a>
+      <a class="tool-card" href="phishing.html">
+        <h3>Phishing Detector</h3>
+        <p>Paste a suspicious email and scan for red flags.</p>
+      </a>
+      <a class="tool-card" href="incidents.html">
+        <h3>Incident Reports</h3>
+        <p>View simulated security incidents and their status.</p>
+      </a>
+      <a class="tool-card" href="awareness.html">
+        <h3>Awareness</h3>
+        <p>Learn about MFA, phishing, and password hygiene.</p>
+      </a>
+    </section>
+
+    <!-- live activity feed, updated by JS -->
+    <section class="activity">
+      <h2>Live Activity</h2>
+      <ul id="activityFeed" class="feed">
+        <li>System initialised ✔</li>
+      </ul>
+    </section>
+
   </main>
+
+  <footer class="footer">
+    <p>CyberShield — Educational simulated SOC dashboard</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phishing Detector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+  <div class="logo">🛡️ CyberShield</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="password.html">Password</a></li>
+    <li><a href="phishing.html">Phishing</a></li>
+    <li><a href="incidents.html">Incidents</a></li>
+    <li><a href="awareness.html">Awareness</a></li>
+  </ul>
+</nav>
+  <main>
+  <header class="page-header">
+    <h1>Phishing Email Detector</h1>
+    <p class="subtitle">Paste an email and scan for common phishing indicators</p>
+  </header>
+
+  <div class="tool-panel">
+    <textarea id="email" rows="8" placeholder="Paste email content here"></textarea>
+    <button onclick="scanEmail()">Scan</button>
+    <pre id="report"></pre>
+  </div>
+</main>
+  <script src="script.js"></script>
+</body>
+</html>
