@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberShield — Notes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="banner">
+    <img src="assets/banner.jpg" alt="" class="banner-img">
+    <div class="banner-overlay">
+      <h1>CyberShield</h1>
+      <p class="tagline">Offensive &amp; Defensive Security Study Console</p>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="techniques.html">Techniques</a>
+    <a href="tools.html">Tools</a>
+    <a href="notes.html" class="active">Notes</a>
+  </nav>
+
+  <main class="layout" style="grid-template-columns: 1fr;">
+
+    <section class="panel">
+      <h2>Glossary</h2>
+      <p class="muted">Terms I keep coming back to while studying red team work.</p>
+
+      <div class="tips">
+
+        <div class="tip">
+          <h3>Red Team</h3>
+          <p>
+            A group that emulates real attackers to test an organisation's
+            detection and response capability. Goal is to improve defence,
+            not to cause damage.
+          </p>
+        </div>
+
+        <div class="tip">
+          <h3>Blue Team</h3>
+          <p>
+            The defensive side: monitoring, detection, incident response,
+            hardening. Red and blue are complementary, not opposites.
+          </p>
+        </div>
+
+        <div class="tip">
+          <h3>Foothold</h3>
+          <p>
+            The first reliable piece of access an attacker has on a target
+            system. Everything else builds from here.
+          </p>
+        </div>
+
+        <div class="tip">
+          <h3>Lateral Movement</h3>
+          <p>
+            Moving from one compromised host to another inside the same
+            network, usually to reach more valuable systems.
+          </p>
+        </div>
+
+        <div class="tip">
+          <h3>C2 (Command and Control)</h3>
+          <p>
+            The channel an attacker uses to send instructions to a
+            compromised host and receive results back.
+          </p>
+        </div>
+
+        <div class="tip">
+          <h3>Payload</h3>
+          <p>
+            The code that actually does the work once it runs — opening a
+            shell, exfiltrating a file, installing persistence.
+          </p>
+        </div>
+
+        <div class="tip">
+          <h3>OPSEC</h3>
+          <p>
+            Operational Security. In red team terms: not getting caught,
+            not leaving obvious traces, not burning your access.
+          </p>
+        </div>
+
+        <div class="tip">
+          <h3>MITRE ATT&amp;CK</h3>
+          <p>
+            Public framework of real-world adversary tactics and techniques.
+            Used on both sides — red teams structure operations by it,
+            blue teams map detections to it.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    CyberShield is a personal study project. All content is educational.
+  </footer>
+
+</body>
+</html>
