@@ -3,70 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CyberShield — Security Operations Console</title>
+  <title>CyberShield — Security Study Console</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header class="banner">
+    <img src="assets/banner.jpg" alt="" class="banner-img">
     <div class="banner-overlay">
       <h1>CyberShield</h1>
-      <p class="tagline">Security Operations Console — Northwind Health</p>
+      <p class="tagline">Offensive &amp; Defensive Security Study Console</p>
     </div>
   </header>
 
   <nav class="navbar">
     <a href="index.html" class="active">Home</a>
+    <a href="techniques.html">Techniques</a>
     <a href="tools.html">Tools</a>
-    <a href="incidents.html">Incidents</a>
-    <a href="awareness.html">Awareness</a>
-    <a href="about.html">About</a>
+    <a href="notes.html">Notes</a>
   </nav>
 
   <main class="layout">
 
     <section class="panel">
-      <h2>Current Security State</h2>
-      <p class="muted">Snapshot as of this session. Numbers are simulated.</p>
-
-      <ul class="stat-list">
-        <li><span class="label">Systems monitored</span><span class="value">142</span></li>
-        <li><span class="label">Open alerts</span><span class="value warn">3</span></li>
-        <li><span class="label">Active incidents</span><span class="value crit">1</span></li>
-        <li><span class="label">Mean time to respond</span><span class="value">14 min</span></li>
-        <li><span class="label">Organisation risk score</span><span class="value">72 / 100</span></li>
-      </ul>
-
+      <h2>About This Console</h2>
+      <p>
+        CyberShield is my personal study console for offensive and defensive
+        security. It collects reference material, small browser-based helpers,
+        and notes from my own learning.
+      </p>
+      <p>
+        Everything here is either public knowledge or written by me.
+        No real systems are targeted. All examples are educational.
+      </p>
       <p class="hint">
-        Risk score is a weighted summary of open alerts, unresolved incidents,
-        and MFA coverage across staff accounts.
+        Built as a Git practical project and kept as a portfolio piece.
       </p>
     </section>
 
     <section class="panel">
-      <h2>What This Console Is For</h2>
-      <p>
-        This is an internal tool for a fictional healthcare organisation.
-        It exists so staff and the security team can answer three questions quickly:
-      </p>
-      <ol class="purpose-list">
-        <li>Is anything wrong right now?</li>
-        <li>Can I safely use this password / trust this email?</li>
-        <li>What does a real attack look like so I can spot one?</li>
-      </ol>
-
-      <h3>Where to go next</h3>
+      <h2>What's Inside</h2>
       <ul class="link-list">
-        <li><a href="tools.html">Tools</a> — test a password or scan a suspicious email</li>
-        <li><a href="incidents.html">Incidents</a> — see the current incident log</li>
-        <li><a href="awareness.html">Awareness</a> — short guidance on common attacks</li>
+        <li>
+          <a href="techniques.html">Techniques</a> — reference list of common
+          attack techniques, grouped by category, with short descriptions.
+        </li>
+        <li>
+          <a href="tools.html">Tools</a> — browser-based helpers: password
+          strength checker, phishing scanner, encoder/decoder, hash identifier.
+        </li>
+        <li>
+          <a href="notes.html">Notes</a> — short glossary and study notes on
+          red team concepts.
+        </li>
       </ul>
     </section>
 
   </main>
 
   <footer class="footer">
-    CyberShield is an educational simulation. No real systems are monitored.
+    CyberShield is a personal study project. All content is educational.
   </footer>
 
 </body>
