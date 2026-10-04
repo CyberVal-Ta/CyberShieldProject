@@ -1,15 +1,20 @@
-/* 
-   CyberShield - palette
-   #8889CD soft periwinkle
-   #2E148C deep violet
-   #1D3973 mid navy
-   #0A2140 dark navy
-   #071526 near-black navy
-   #92B1D5 light steel blue
-   #111B48 very dark indigo
-    */
+/*
+#0c1119   near-black blue
+#06101a   very dark blue
+#341f3c   dark plum
+#582657   mid plum
+#243f74   mid navy
+#4b6ca9   steel blue
+#0c0914   near-black plum
+#5e5d84   muted purple
+#92a3d7   light periwinkle
+#081022   dark ink
+*/
 
-* {
+
+
+
+*{
   box-sizing: border-box;
 }
 
@@ -21,30 +26,29 @@ body {
 
 body {
   font-family: "Gill Sans", Calibri, "Trebuchet MS", sans-serif;
-  background: linear-gradient(180deg, #071526 0%, #0A2140 100%);
+  background: linear-gradient(180deg, #06101A 0%, #0C1119 100%);
   background-attachment: fixed;
-  color: #92B1D5;
+  color: #92A3D7;
   min-height: 100vh;
   line-height: 1.55;
   -webkit-text-size-adjust: 100%;
 }
 
 a {
-  color: #8889CD;
+  color: #92A3D7;
   text-decoration: none;
 }
 
 a:hover {
-  color: #92B1D5;
+  color: #4B6CA9;
   text-decoration: underline;
 }
-
 
 .banner {
   position: relative;
   width: 100%;
   overflow: hidden;
-  background: #071526;
+  background: #081022;
   line-height: 0;
 }
 
@@ -69,20 +73,41 @@ a:hover {
   margin: 0;
   font-size: 2rem;
   letter-spacing: 1px;
-  color: #92B1D5;
-  text-shadow: 0 2px 8px rgba(7, 21, 38, 0.85);
+  color: #92A3D7;
+  text-shadow: 0 2px 8px rgba(8, 16, 34, 0.85);
+}
+
+.banner-link {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.banner-link h1 {
+  transition: color 0.2s, background-color 0.2s, padding 0.2s;
+  padding: 0.2rem 0.4rem;
+  margin-left: -0.4rem;
+}
+
+.banner-link:hover h1 {
+  color: #06101A;
+  background-color: #92A3D7;
+}
+
+.banner-link:hover {
+  text-decoration: none;
 }
 
 .navbar {
   display: flex;
   gap: 2rem;
   padding: 1rem 3rem;
-  background: linear-gradient(180deg, #0A2140 0%, #071526 100%);
-  border-bottom: 1px solid #111B48;
+  background: linear-gradient(180deg, #081022 0%, #06101A 100%);
+  border-bottom: 1px solid #243F74;
 }
 
 .navbar a {
-  color: #92B1D5;
+  color: #92A3D7;
   font-size: 1rem;
   padding: 4px 0;
   border-bottom: 2px solid transparent;
@@ -90,13 +115,13 @@ a:hover {
 }
 
 .navbar a:hover {
-  color: #8889CD;
+  color: #4B6CA9;
   text-decoration: none;
 }
 
 .navbar a.active {
-  color: #8889CD;
-  border-bottom-color: #2E148C;
+  color: #92A3D7;
+  border-bottom-color: #582657;
 }
 
 .layout {
@@ -109,33 +134,33 @@ a:hover {
 }
 
 .panel {
-  background: rgba(17, 27, 72, 0.8);
-  border: 1px solid #1D3973;
+  background: rgba(12, 9, 20, 0.8);
+  border: 1px solid #341F3C;
   padding: 1.6rem 1.8rem;
 }
 
 .panel h2 {
   margin-top: 0;
-  color: #8889CD;
+  color: #92A3D7;
   font-size: 1.35rem;
-  border-bottom: 1px solid #1D3973;
+  border-bottom: 1px solid #341F3C;
   padding-bottom: 0.5rem;
 }
 
 .panel h3 {
-  color: #8889CD;
+  color: #92A3D7;
   font-size: 1.05rem;
   margin-bottom: 0.4rem;
 }
 
 .muted {
-  color: #92B1D5;
+  color: #92A3D7;
   opacity: 0.75;
   font-size: 0.9rem;
 }
 
 .hint {
-  color: #92B1D5;
+  color: #92A3D7;
   opacity: 0.65;
   font-size: 0.85rem;
   margin-top: 1rem;
@@ -159,7 +184,7 @@ a:hover {
 .field label {
   display: block;
   margin-bottom: 0.4rem;
-  color: #92B1D5;
+  color: #92A3D7;
   font-size: 0.9rem;
 }
 
@@ -167,10 +192,10 @@ a:hover {
 .field input[type="text"],
 .field textarea {
   width: 100%;
-  background: rgba(7, 21, 38, 0.7);
-  border: 1px solid #1D3973;
+  background: #06101A;
+  border: 1px solid #243F74;
   padding: 0.65rem 0.8rem;
-  color: #92B1D5;
+  color: #92A3D7;
   font-family: inherit;
   font-size: 1rem;
 }
@@ -178,42 +203,43 @@ a:hover {
 .field input:focus,
 .field textarea:focus {
   outline: none;
-  border-color: #8889CD;
+  border-color: #92A3D7;
 }
 
 button {
-  background: #2E148C;
-  color: #92B1D5;
-  border: 1px solid #8889CD;
+  background: #243F74;
+  color: #92A3D7;
+  border: 1px solid #4B6CA9;
   padding: 0.65rem 1.4rem;
   font-family: inherit;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
 button:hover {
-  background: #1D3973;
-  color: #8889CD;
+  background: #582657;
+  color: #92A3D7;
+  border-color: #92A3D7;
 }
 
 .output {
   margin-top: 1rem;
   padding: 0.9rem 1rem;
-  background: rgba(7, 21, 38, 0.7);
-  border-left: 3px solid #8889CD;
+  background: #06101A;
+  border-left: 3px solid #92A3D7;
   white-space: pre-wrap;
   word-break: break-word;
   font-size: 0.9rem;
-  color: #92B1D5;
+  color: #92A3D7;
   font-family: Consolas, "Courier New", monospace;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  background: rgba(17, 27, 72, 0.6);
-  border: 1px solid #1D3973;
+  background: rgba(12, 9, 20, 0.6);
+  border: 1px solid #341F3C;
   overflow: hidden;
 }
 
@@ -221,13 +247,13 @@ th,
 td {
   text-align: left;
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid #1D3973;
+  border-bottom: 1px solid #341F3C;
   font-size: 0.9rem;
 }
 
 th {
-  background: rgba(46, 20, 140, 0.55);
-  color: #92B1D5;
+  background: #341F3C;
+  color: #92A3D7;
   font-weight: 600;
 }
 
@@ -243,27 +269,27 @@ tr:last-child td {
 }
 
 .tip {
-  background: rgba(17, 27, 72, 0.7);
-  border: 1px solid #1D3973;
+  background: rgba(12, 9, 20, 0.7);
+  border: 1px solid #341F3C;
   padding: 1.1rem 1.3rem;
 }
 
 .tip h3 {
   margin-top: 0;
-  color: #8889CD;
+  color: #92A3D7;
   font-size: 1rem;
 }
 
 .tip p {
   margin-bottom: 0;
   font-size: 0.9rem;
-  color: #92B1D5;
+  color: #92A3D7;
 }
 
 .footer {
   text-align: center;
   padding: 2rem 1rem;
-  color: #92B1D5;
+  color: #92A3D7;
   opacity: 0.55;
   font-size: 0.85rem;
 }
@@ -272,46 +298,205 @@ tr:last-child td {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1px;
-  background: #1D3973;
-  border: 1px solid #1D3973;
+  background: #341F3C;
+  border: 1px solid #341F3C;
   margin-top: 1rem;
 }
 
 .site-tile {
-  background: #0A2140;
+  background: #081022;
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  color: #92B1D5;
+  color: #92A3D7;
   transition: background 0.15s;
 }
 
 .site-tile:hover {
-  background: #1D3973;
+  background: #243F74;
   text-decoration: none;
 }
 
 .tile-title {
-  color: #8889CD;
+  color: #92A3D7;
   font-weight: 600;
   margin-bottom: 0.3rem;
 }
 
 .tile-desc {
   font-size: 0.85rem;
-  color: #92B1D5;
+  color: #92A3D7;
   opacity: 0.85;
 }
 
 .rotating {
-  background: #071526;
-  border-left: 3px solid #8889CD;
+  background: #06101A;
+  border-left: 3px solid #92A3D7;
   padding: 0.9rem 1rem;
   margin: 0 0 1rem;
   font-size: 0.95rem;
 }
 
+.layout-narrow {
+  grid-template-columns: 1fr;
+  max-width: 900px;
+}
 
+.game-bar {
+  display: flex;
+  gap: 1px;
+  background: #341F3C;
+  border: 1px solid #341F3C;
+  margin: 1rem 0;
+}
+
+.game-stat {
+  flex: 1;
+  background: #081022;
+  padding: 0.7rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #92A3D7;
+}
+
+.stat-value {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #92A3D7;
+  font-family: Consolas, "Courier New", monospace;
+}
+
+.game-log {
+  background: #06101A;
+  border: 1px solid #243F74;
+  padding: 0.9rem 1rem;
+  min-height: 130px;
+  max-height: 240px;
+  overflow-y: auto;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.85rem;
+  color: #92A3D7;
+  margin-bottom: 1rem;
+}
+
+.log-line {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #0C0914;
+}
+
+.log-line:last-child {
+  border-bottom: none;
+}
+
+.log-time {
+  color: #5E5D84;
+  margin-right: 0.6rem;
+}
+
+.log-verdict-good {
+  color: #92A3D7;
+}
+
+.log-verdict-bad {
+  color: #C77F9E;
+}
+
+.game-controls {
+  display: flex;
+  gap: 1px;
+  background: #341F3C;
+  border: 1px solid #341F3C;
+}
+
+.game-controls button {
+  flex: 1;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-allow {
+  background: #081022;
+  color: #92A3D7;
+}
+
+.btn-allow:hover {
+  background: #243F74;
+  color: #92A3D7;
+}
+
+.btn-monitor {
+  background: #243F74;
+  color: #92A3D7;
+}
+
+.btn-monitor:hover {
+  background: #4B6CA9;
+  color: #06101A;
+}
+
+.btn-flag {
+  background: #341F3C;
+  color: #92A3D7;
+}
+
+.btn-flag:hover {
+  background: #582657;
+  color: #92A3D7;
+}
+
+.game-controls button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.event-ctx {
+  color: #5E5D84;
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+}
+
+.event-line {
+  color: #92A3D7;
+}
+
+.event-line strong {
+  color: #92A3D7;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.combo-active {
+  color: #92A3D7;
+}
+
+.game-over {
+  background: #06101A;
+  border: 1px solid #92A3D7;
+  padding: 1.2rem 1.4rem;
+  margin-top: 1rem;
+}
+
+.game-over h3 {
+  margin-top: 0;
+  color: #92A3D7;
+}
+
+.game-over p {
+  margin: 0 0 1rem;
+}
 
 @media (max-width: 900px) {
   .layout {
@@ -324,10 +509,7 @@ tr:last-child td {
   }
 }
 
-
 @media (max-width: 640px) {
-
-
   .banner-img {
     max-height: 160px;
   }
@@ -341,27 +523,6 @@ tr:last-child td {
   .banner h1 {
     font-size: 1.5rem;
   }
-
-  .banner-link {
-  display: inline-block;
-  color: inherit;
-  text-decoration: none;
-}
-
-.banner-link h1 {
-  transition: color 0.2s, background-color 0.2s, padding 0.2s;
-  padding: 0.2rem 0.4rem;
-  margin-left: -0.4rem;
-}
-
-.banner-link:hover h1 {
-  color: #071526;
-  background-color: #8889CD;
-}
-
-.banner-link:hover {
-  text-decoration: none;
-}
 
   .navbar {
     gap: 1.2rem;
@@ -389,7 +550,6 @@ tr:last-child td {
     gap: 1rem;
   }
 
-
   table {
     display: block;
     overflow-x: auto;
@@ -402,7 +562,6 @@ tr:last-child td {
     font-size: 0.85rem;
   }
 
-  /* footer */
   .footer {
     padding: 1.5rem 1rem;
     font-size: 0.8rem;
@@ -422,7 +581,6 @@ tr:last-child td {
   }
 }
 
-
 @media (max-width: 400px) {
   .banner h1 {
     font-size: 1.25rem;
@@ -435,165 +593,4 @@ tr:last-child td {
   .navbar a {
     font-size: 0.85rem;
   }
-}
-
-.layout-narrow {
-  grid-template-columns: 1fr;
-  max-width: 900px;
-}
-
-.game-bar {
-  display: flex;
-  gap: 1px;
-  background: #1D3973;
-  border: 1px solid #1D3973;
-  margin: 1rem 0;
-}
-
-.game-stat {
-  flex: 1;
-  background: #0A2140;
-  padding: 0.7rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.stat-label {
-  font-size: 0.7rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #8889CD;
-}
-
-.stat-value {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #92B1D5;
-  font-family: Consolas, "Courier New", monospace;
-}
-
-.game-log {
-  background: #071526;
-  border: 1px solid #1D3973;
-  padding: 0.9rem 1rem;
-  min-height: 130px;
-  max-height: 240px;
-  overflow-y: auto;
-  font-family: Consolas, "Courier New", monospace;
-  font-size: 0.85rem;
-  color: #92B1D5;
-  margin-bottom: 1rem;
-}
-
-.log-line {
-  padding: 0.25rem 0;
-  border-bottom: 1px solid #111B48;
-}
-
-.log-line:last-child {
-  border-bottom: none;
-}
-
-.log-time {
-  color: #8889CD;
-  margin-right: 0.6rem;
-}
-
-.log-verdict-good {
-  color: #92B1D5;
-}
-
-.log-verdict-bad {
-  color: #ff8b8b;
-}
-
-.game-controls {
-  display: flex;
-  gap: 1px;
-  background: #1D3973;
-  border: 1px solid #1D3973;
-}
-
-.game-controls button {
-  flex: 1;
-  border: none;
-  padding: 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-.btn-allow {
-  background: #0A2140;
-  color: #92B1D5;
-}
-
-.btn-allow:hover {
-  background: #1D3973;
-  color: #8889CD;
-}
-
-.btn-flag {
-  background: #2E148C;
-  color: #92B1D5;
-}
-
-.btn-flag:hover {
-  background: #1D3973;
-  color: #8889CD;
-}
-
-.btn-monitor {
-  background: #1D3973;
-  color: #92B1D5;
-}
-
-.btn-monitor:hover {
-  background: #0A2140;
-  color: #8889CD;
-}
-
-.event-ctx {
-  color: #8889CD;
-  display: block;
-  margin-top: 0.2rem;
-  font-size: 0.8rem;
-}
-
-.combo-active {
-  color: #8889CD;
-}
-
-.game-controls button:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-}
-
-.game-over {
-  background: #071526;
-  border: 1px solid #8889CD;
-  padding: 1.2rem 1.4rem;
-  margin-top: 1rem;
-}
-
-.game-over h3 {
-  margin-top: 0;
-  color: #8889CD;
-}
-
-.game-over p {
-  margin: 0 0 1rem;
-}
-
-.event-line {
-  color: #92B1D5;
-}
-
-.event-line strong {
-  color: #8889CD;
-  font-weight: 600;
-  margin-right: 0.5rem;
 }
