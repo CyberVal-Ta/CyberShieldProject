@@ -1,49 +1,253 @@
-body { 
-    font-family: Arial, sans-serif; 
-    margin: 0; 
-    background: #0f172a; 
-    color: #e2e8f0; 
-    
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  background: #0b1220;
+  color: #dbe4f0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+a { color: #38bdf8; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- navbar ---------- */
 .navbar {
-  display: flex; 
-  justify-content: space-between; 
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  background: #1e293b; 
   padding: 1rem 2rem;
-
+  background: #111a2e;
+  border-bottom: 1px solid #1f2a44;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.logo { 
-    font-weight: bold; 
-    font-size: 1.2rem; 
-
-}
-.nav-links { 
-    list-style: none; 
-    display: flex; gap: 1.5rem; 
-    margin: 0; 
-    padding: 0; 
-
-}
-.nav-links a { 
-    color: #38bdf8; 
-    text-decoration: none; 
-
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
 }
 
-.nav-links a:hover { 
-    text-decoration: underline; 
-
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
 }
 
-main { 
-    padding: 2rem; 
-
+.nav-links a {
+  color: #93a4c0;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.15s;
 }
 
+.nav-links a:hover,
+.nav-links a.active {
+  background: #1c2a47;
+  color: #38bdf8;
+  text-decoration: none;
+}
 
-.status p { 
-    font-size: 1.1rem; 
+/* ---------- layout ---------- */
+main {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.page-header { margin-bottom: 2rem; }
+.page-header h1 { margin: 0 0 0.3rem; font-size: 1.9rem; }
+.subtitle { color: #7f92b2; margin: 0; }
+
+/* ---------- status cards ---------- */
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.status-card {
+  background: #131d33;
+  border: 1px solid #1f2a44;
+  border-radius: 12px;
+  padding: 1.2rem;
+  position: relative;
+}
+
+.status-card h3 { margin: 0 0 0.3rem; font-size: 0.95rem; color: #93a4c0; }
+.status-card p { margin: 0; font-size: 1.15rem; font-weight: 600; }
+
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-bottom: 0.6rem;
+}
+.status-dot.green  { background: #22c55e; box-shadow: 0 0 8px #22c55e; }
+.status-dot.yellow { background: #eab308; box-shadow: 0 0 8px #eab308; }
+.status-dot.red    { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
+.status-dot.blue   { background: #38bdf8; box-shadow: 0 0 8px #38bdf8; }
+
+.status-card.ok   { border-color: #1f4a2e; }
+.status-card.warn { border-color: #4a4020; }
+.status-card.crit { border-color: #4a2020; }
+
+/* ---------- tool tiles ---------- */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tool-card {
+  background: #131d33;
+  border: 1px solid #1f2a44;
+  border-radius: 12px;
+  padding: 1.2rem;
+  color: inherit;
+  transition: transform 0.12s, border-color 0.12s;
+}
+
+.tool-card:hover {
+  transform: translateY(-2px);
+  border-color: #38bdf8;
+  text-decoration: none;
+}
+
+.tool-card h3 { margin: 0 0 0.4rem; }
+.tool-card p { margin: 0; color: #93a4c0; font-size: 0.9rem; }
+
+/* ---------- activity feed ---------- */
+.activity h2 { font-size: 1.2rem; margin-bottom: 0.8rem; }
+
+.feed {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #0f172a;
+  border: 1px solid #1f2a44;
+  border-radius: 12px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.feed li {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #17233c;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+.feed li:last-child { border-bottom: none; }
+
+/* ---------- forms / tools pages ---------- */
+.tool-panel {
+  background: #131d33;
+  border: 1px solid #1f2a44;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tool-panel input[type="password"],
+.tool-panel textarea {
+  width: 100%;
+  background: #0b1220;
+  border: 1px solid #1f2a44;
+  color: #e2e8f0;
+  padding: 0.7rem;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.tool-panel input:focus,
+.tool-panel textarea:focus {
+  outline: none;
+  border-color: #38bdf8;
+}
+
+.tool-panel button {
+  background: #38bdf8;
+  color: #0b1220;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.tool-panel button:hover { background: #7dd3fc; }
+
+#result, #report {
+  margin-top: 1rem;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  color: #e2e8f0;
+}
+
+/* ---------- table (incidents) ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #131d33;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #1f2a44;
+}
+th, td {
+  text-align: left;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #1f2a44;
+  font-size: 0.9rem;
+}
+th { background: #17233c; color: #93a4c0; font-weight: 600; }
+tr:last-child td { border-bottom: none; }
+
+.sev {
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+.sev.critical { background: #4a2020; color: #fca5a5; }
+.sev.high     { background: #4a3520; color: #fdba74; }
+.sev.medium   { background: #4a4020; color: #fde68a; }
+.sev.low      { background: #1f4a2e; color: #86efac; }
+
+/* ---------- awareness cards ---------- */
+.tips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.tip {
+  background: #131d33;
+  border: 1px solid #1f2a44;
+  border-radius: 12px;
+  padding: 1.2rem;
+}
+.tip h3 { margin: 0 0 0.4rem; }
+.tip p { margin: 0; color: #93a4c0; font-size: 0.9rem; }
+
+/* ---------- footer ---------- */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  color: #5b6b8a;
+  font-size: 0.85rem;
+  border-top: 1px solid #1f2a44;
 }
