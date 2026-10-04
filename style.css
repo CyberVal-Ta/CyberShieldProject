@@ -1,4 +1,14 @@
-/* -------- base -------- */
+/* 
+   CyberShield - palette
+   #8889CD soft periwinkle
+   #2E148C deep violet
+   #1D3973 mid navy
+   #0A2140 dark navy
+   #071526 near-black navy
+   #92B1D5 light steel blue
+   #111B48 very dark indigo
+    */
+
 * {
   box-sizing: border-box;
 }
@@ -15,6 +25,7 @@ body {
   color: #92B1D5;
   min-height: 100vh;
   line-height: 1.55;
+  -webkit-text-size-adjust: 100%;   
 }
 
 a {
@@ -26,19 +37,19 @@ a:hover {
   text-decoration: underline;
 }
 
-/* -------- banner -------- */
+
 .banner {
   position: relative;
   width: 100%;
   overflow: hidden;
+  background: #071526;
   line-height: 0;
-  background: #071526;   /* fallback if image fails to load */
 }
 
 .banner-img {
   width: 100%;
   height: auto;
-  max-height: 340px;
+  max-height: 220px;            
   object-fit: cover;
   object-position: center;
   display: block;
@@ -46,40 +57,31 @@ a:hover {
 
 .banner-overlay {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 2rem 3rem 1.8rem;
-  background: linear-gradient(180deg, transparent 0%, rgba(7,21,38,0.92) 100%);
+  top: 1.5rem;
+  left: 2rem;
+  right: 2rem;
+  line-height: 1.2;
 }
 
 .banner h1 {
   margin: 0;
-  font-size: 2.6rem;
+  font-size: 2rem;
   letter-spacing: 1px;
   color: #92B1D5;
-  text-shadow: 0 2px 8px rgba(7,21,38,0.8);
+  text-shadow: 0 2px 8px rgba(7,21,38,0.85);
 }
 
-.tagline {
-  margin: 0.3rem 0 0;
-  font-size: 0.95rem;
-  color: #8889CD;
-  text-shadow: 0 1px 4px rgba(7,21,38,0.8);
-}
-
-/* -------- nav -------- */
 .navbar {
   display: flex;
   gap: 2rem;
   padding: 1rem 3rem;
-  background: rgba(7, 21, 38, 0.9);
+  background: linear-gradient(180deg, #0A2140 0%, #071526 100%);
   border-bottom: 1px solid #111B48;
 }
 
 .navbar a {
   color: #92B1D5;
-  font-size: 1.05rem;
+  font-size: 1rem;
   padding: 4px 0;
   border-bottom: 2px solid transparent;
   transition: color 0.15s, border-color 0.15s;
@@ -95,7 +97,6 @@ a:hover {
   border-bottom-color: #2E148C;
 }
 
-/* -------- layout -------- */
 .layout {
   max-width: 1100px;
   margin: 2.5rem auto;
@@ -105,11 +106,6 @@ a:hover {
   gap: 1.5rem;
 }
 
-@media (max-width: 800px) {
-  .layout { grid-template-columns: 1fr; }
-}
-
-/* -------- panels -------- */
 .panel {
   background: rgba(17, 27, 72, 0.8);
   border: 1px solid #1D3973;
@@ -134,7 +130,6 @@ a:hover {
 .muted { color: #92B1D5; opacity: 0.75; font-size: 0.9rem; }
 .hint  { color: #92B1D5; opacity: 0.65; font-size: 0.85rem; margin-top: 1rem; font-style: italic; }
 
-/* -------- lists -------- */
 .link-list {
   list-style: none;
   padding: 0;
@@ -142,10 +137,7 @@ a:hover {
 }
 .link-list li { margin-bottom: 0.5rem; }
 
-/* -------- tools form -------- */
-.field {
-  margin-bottom: 1.2rem;
-}
+.field { margin-bottom: 1.2rem; }
 
 .field label {
   display: block;
@@ -164,7 +156,7 @@ a:hover {
   padding: 0.65rem 0.8rem;
   color: #92B1D5;
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 1rem;              
 }
 
 .field input:focus,
@@ -177,10 +169,10 @@ button {
   background: #2E148C;
   color: #92B1D5;
   border: 1px solid #8889CD;
-  padding: 0.6rem 1.4rem;
+  padding: 0.65rem 1.4rem;
   border-radius: 6px;
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
 }
@@ -197,12 +189,12 @@ button:hover {
   border-left: 3px solid #8889CD;
   border-radius: 4px;
   white-space: pre-wrap;
+  word-break: break-word;
   font-size: 0.9rem;
   color: #92B1D5;
   font-family: Consolas, "Courier New", monospace;
 }
 
-/* -------- tables -------- */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -227,16 +219,11 @@ th {
 
 tr:last-child td { border-bottom: none; }
 
-/* -------- tips / cards -------- */
 .tips {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   margin-top: 1rem;
-}
-
-@media (max-width: 800px) {
-  .tips { grid-template-columns: 1fr; }
 }
 
 .tip {
@@ -258,11 +245,103 @@ tr:last-child td { border-bottom: none; }
   color: #92B1D5;
 }
 
-/* -------- footer -------- */
 .footer {
   text-align: center;
   padding: 2rem 1rem;
   color: #92B1D5;
   opacity: 0.55;
   font-size: 0.85rem;
+}
+
+
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;   
+    margin: 2rem auto;
+  }
+
+  .tips {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 640px) {
+
+
+  .banner-img {
+    max-height: 160px;
+  }
+
+  .banner-overlay {
+    top: 1rem;
+    left: 1.2rem;
+    right: 1.2rem;
+  }
+
+  .banner h1 {
+    font-size: 1.5rem;
+  }
+
+  .navbar {
+    gap: 1.2rem;
+    padding: 0.8rem 1.2rem;
+    overflow-x: auto;            
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  .navbar a {
+    font-size: 0.95rem;
+  }
+
+
+  .panel {
+    padding: 1.2rem 1.1rem;
+    border-radius: 8px;
+  }
+
+  .panel h2 {
+    font-size: 1.15rem;
+  }
+
+  .layout {
+    padding: 0 1rem;
+    margin: 1.5rem auto;
+    gap: 1rem;
+  }
+
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  th, td {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  /* footer */
+  .footer {
+    padding: 1.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .banner h1 {
+    font-size: 1.25rem;
+  }
+
+  .navbar {
+    gap: 0.9rem;
+  }
+
+  .navbar a {
+    font-size: 0.85rem;
+  }
 }
