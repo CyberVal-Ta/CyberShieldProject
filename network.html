@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberShield</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="banner">
+    <img src="assets/banner.jpg" alt="" class="banner-img">
+    <div class="banner-overlay">
+      <a href="index.html" class="banner-link">
+        <h1>CyberShield</h1>
+      </a>
+    </div>>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="techniques.html">Techniques</a>
+      <a href="tools.html">Tools</a>
+      <a href="network.html" class="active">Network Game</a>
+    </nav>
+  </header>
+
+  <main class="layout layout-narrow">
+
+    <section class="panel">
+      <h2>Network Security Monitor</h2>
+      <p class="muted">
+        Traffic is streaming in. For each event, choose Allow, Monitor, or Block.
+        Misclassify and the clock runs down faster. Watch the difficulty ramp.
+      </p>
+
+      <div class="game-bar">
+        <div class="game-stat"><span class="stat-label">Score</span><span id="gScore" class="stat-value">0</span></div>
+        <div class="game-stat"><span class="stat-label">Time</span><span id="gTime" class="stat-value">30</span></div>
+        <div class="game-stat"><span class="stat-label">Missed</span><span id="gMissed" class="stat-value">0</span>
+        </div>
+        <div class="game-stat"><span class="stat-label">Combo</span><span id="gCombo" class="stat-value">x1</span></div>
+      </div>
+
+      <div id="gameLog" class="game-log"></div>
+
+      <div id="gameControls" class="game-controls">
+        <button id="btnAllow" class="btn-allow" onclick="gameAnswer('allow')">Allow</button>
+        <button id="btnMonitor" class="btn-monitor" onclick="gameAnswer('monitor')">Monitor</button>
+        <button id="btnBlock" class="btn-flag" onclick="gameAnswer('block')">Block</button>
+      </div>
+
+      <div id="gameOver" class="game-over" style="display:none;">
+        <h3>Session ended</h3>
+        <p id="gameSummary"></p>
+        <button onclick="startGame()">Run again</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    CyberShield is a personal study project. All content is educational.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

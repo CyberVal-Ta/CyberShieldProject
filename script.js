@@ -261,3 +261,163 @@ function analyseSample() {
 
   out.textContent = lines.join("\n");
 }
+
+var gameState = {
+  running: false,
+  score: 0,
+  missed: 0,
+  timeLeft: 30,
+  current: null,
+  timer: null,
+  eventTimer: null,
+  totalEvents: 0
+};
+
+var trafficPool = [
+  { label: "HTTP GET /index.html", source: "10.0.1.14", kind: "benign" },
+  { label: "HTTPS POST /login", source: "10.0.1.22", kind: "benign" },
+  { label: "DNS query for cdn.example.com", source: "10.0.1.9", kind: "benign" },
+  { label: "NTP sync with pool.ntp.org", source: "10.0.0.1", kind: "benign" },
+  { label: "SMTP outbound to mail provider", source: "10.0.2.11", kind: "benign" },
+  { label: "SSH session from 10.0.1.5", source: "10.0.1.5", kind: "benign" },
+  { label: "DHCP lease renewal", source: "10.0.0.2", kind: "benign" },
+  { label: "ICMP echo request", source: "10.0.1.31", kind: "benign" },
+  { label: "TCP 22 port scan sweep", source: "203.0.113.44", kind: "threat" },
+  { label: "Repeated failed SSH logins", source: "198.51.100.7", kind: "threat" },
+  { label: "SMB traffic to external host", source: "203.0.113.88", kind: "threat" },
+  { label: "DNS query to known C2 domain", source: "10.0.1.14", kind: "threat" },
+  { label: "Outbound traffic spike on port 4444", source: "10.0.3.6", kind: "threat" },
+  { label: "HTTP POST to raw IP address", source: "203.0.113.201", kind: "threat" },
+  { label: "RDP connection from public internet", source: "198.51.100.19", kind: "threat" },
+  { label: "Unusual DNS TXT record exfiltration", source: "10.0.2.8", kind: "threat" },
+  { label: "Base64-encoded HTTP payload", source: "10.0.1.44", kind: "threat" },
+  { label: "Kerberos ticket request anomaly", source: "10.0.4.12", kind: "threat" }
+];
+
+function pickEvent() {
+  return trafficPool[Math.floor(Math.random() * trafficPool.length)];
+}
+
+function stamp() {
+  var d = new Date();
+  var hh = String(d.getHours()).padStart(2, "0");
+  var mm = String(d.getMinutes()).padStart(2, "0");
+  var ss = String(d.getSeconds()).padStart(2, "0");
+  return hh + ":" + mm + ":" + ss;
+}
+
+function appendLog(html) {
+  var log = document.getElementById("gameLog");
+  if (!log) return;
+  var line = document.createElement("div");
+  line.className = "log-line";
+  line.innerHTML = '<span class="log-time">[' + stamp() + "]</span>" + html;
+  log.appendChild(line);
+  log.scrollTop = log.scrollHeight;
+}
+
+function updateHud() {
+  var s = document.getElementById("gScore");
+  var t = document.getElementById("gTime");
+  var m = document.getElementById("gMissed");
+  if (s) s.textContent = gameState.score;
+  if (t) t.textContent = gameState.timeLeft;
+  if (m) m.textContent = gameState.missed;
+}
+
+function nextEvent() {
+  if (!gameState.running) return;
+  var ev = pickEvent();
+  gameState.current = ev;
+  gameState.totalEvents++;
+  appendLog(
+    '<span class="event-line"><strong>' + ev.label + "</strong>from " +
+    ev.source + "</span>"
+  );
+}
+
+function gameAnswer(flagged) {
+  if (!gameState.running || !gameState.current) return;
+  var isThreat = gameState.current.kind === "threat";
+
+  if (flagged && isThreat) {
+    gameState.score += 10;
+    appendLog('<span class="log-verdict-good">correct flag</span>');
+  } else if (flagged && !isThreat) {
+    gameState.score -= 5;
+    appendLog('<span class="log-verdict-bad">false alarm -5</span>');
+  } else if (!flagged && !isThreat) {
+    gameState.score += 2;
+    appendLog('<span class="log-verdict-good">correct allow</span>');
+  } else {
+    gameState.missed += 1;
+    gameState.score -= 15;
+    appendLog('<span class="log-verdict-bad">missed threat -15</span>');
+  }
+
+  gameState.current = null;
+  updateHud();
+  nextEvent();
+}
+
+function endGame() {
+  gameState.running = false;
+  clearInterval(gameState.timer);
+  var over = document.getElementById("gameOver");
+  var sum = document.getElementById("gameSummary");
+  var controls = document.getElementById("gameControls");
+  if (over) over.style.display = "block";
+  if (controls) {
+    document.getElementById("btnAllow").disabled = true;
+    document.getElementById("btnFlag").disabled = true;
+  }
+
+  var rating;
+  if (gameState.score >= 120 && gameState.missed === 0) rating = "Analyst of the shift.";
+  else if (gameState.score >= 80) rating = "Solid detection work.";
+  else if (gameState.score >= 40) rating = "Passable, but review your triage.";
+  else if (gameState.score >= 0) rating = "Keep practising.";
+  else rating = "You let things through. Run it again.";
+
+  if (sum) {
+    sum.textContent =
+      "Final score: " + gameState.score +
+      " | Missed threats: " + gameState.missed +
+      " | Events reviewed: " + gameState.totalEvents +
+      " | " + rating;
+  }
+}
+
+function startGame() {
+  gameState.running = true;
+  gameState.score = 0;
+  gameState.missed = 0;
+  gameState.timeLeft = 30;
+  gameState.current = null;
+  gameState.totalEvents = 0;
+
+  var log = document.getElementById("gameLog");
+  if (log) log.innerHTML = "";
+
+  var over = document.getElementById("gameOver");
+  if (over) over.style.display = "none";
+
+  var allow = document.getElementById("btnAllow");
+  var flag = document.getElementById("btnFlag");
+  if (allow) allow.disabled = false;
+  if (flag) flag.disabled = false;
+
+  updateHud();
+  appendLog('<span class="log-verdict-good">monitor online</span>');
+  nextEvent();
+
+  gameState.timer = setInterval(function () {
+    gameState.timeLeft -= 1;
+    updateHud();
+    if (gameState.timeLeft <= 0) endGame();
+  }, 1000);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.getElementById("gameLog")) startGame();
+});

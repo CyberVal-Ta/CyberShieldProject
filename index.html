@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CyberShield — Security Study Console</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <header class="banner">
     <img src="assets/banner.jpg" alt="" class="banner-img">
     <div class="banner-overlay">
-      <h1>CyberShield</h1>
+      <a href="index.html" class="banner-link">
+        <h1>CyberShield</h1>
+      </a>
     </div>
   </header>
 
@@ -19,7 +23,7 @@
     <a href="index.html" class="active">Home</a>
     <a href="techniques.html">Techniques</a>
     <a href="tools.html">Tools</a>
-    <a href="notes.html">Notes</a>
+    <a href="network.html">Network Game</a>
   </nav>
 
   <main class="layout">
@@ -35,27 +39,46 @@
         Everything here is either public knowledge or written by me.
         No real systems are targeted. All examples are educational.
       </p>
-      <p class="hint">
-        Built as a Git practical project and kept as a portfolio piece.
-      </p>
     </section>
 
     <section class="panel">
-      <h2>What's Inside</h2>
-      <ul class="link-list">
-        <li>
-          <a href="techniques.html">Techniques</a> — reference list of common
-          attack techniques, grouped by category, with short descriptions.
-        </li>
-        <li>
-          <a href="tools.html">Tools</a> — browser-based helpers: password
-          strength checker, phishing scanner, encoder/decoder, hash identifier.
-        </li>
-        <li>
-          <a href="notes.html">Notes</a> — short glossary and study notes on
-          red team concepts.
-        </li>
+      <h2>Where To Go</h2>
+      <div class="site-map">
+        <a href="techniques.html" class="site-tile">
+          <span class="tile-title">Techniques</span>
+          <span class="tile-desc">Reference list of attack techniques, grouped by phase.</span>
+        </a>
+        <a href="tools.html" class="site-tile">
+          <span class="tile-title">Tools</span>
+          <span class="tile-desc">Password checker, phishing scanner, IP checker, malware report.</span>
+        </a>
+        <a href="network.html" class="site-tile">
+          <span class="tile-title">Network</span>
+          <span class="tile-desc">Triage live traffic in the monitor mini game.</span>
+        </a>
+        <a href="techniques.html" class="site-tile">
+          <span class="tile-title">Study Log</span>
+          <span class="tile-desc">Notes and definitions, updated as I learn.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Console Stats</h2>
+      <ul class="stat-list">
+        <li><span class="label">Techniques indexed</span><span class="value" id="statTechniques">12</span></li>
+        <li><span class="label">Tools available</span><span class="value">4</span></li>
+        <li><span class="label">Sessions played</span><span class="value" id="statSessions">0</span></li>
+        <li><span class="label">Best monitor score</span><span class="value" id="statBest">0</span></li>
       </ul>
+    </section>
+
+    <section class="panel">
+      <h2>Technique Of The Moment</h2>
+      <p id="rotatingTechnique" class="rotating">
+        Loading...
+      </p>
+      <button onclick="rotateTechnique()">Show another</button>
     </section>
 
   </main>
@@ -65,4 +88,5 @@
   </footer>
 
 </body>
+
 </html>
