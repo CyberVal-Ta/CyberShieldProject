@@ -9,18 +9,18 @@
 <body>
 
   <header class="banner">
+    <img src="assets/banner.jpg" alt="" class="banner-img">
     <div class="banner-overlay">
       <h1>CyberShield</h1>
-      <p class="tagline">Security Operations Console — Northwind Health</p>
+      <p class="tagline">Offensive &amp; Defensive Security Study Console</p>
     </div>
   </header>
 
   <nav class="navbar">
     <a href="index.html">Home</a>
+    <a href="techniques.html">Techniques</a>
     <a href="tools.html" class="active">Tools</a>
-    <a href="incidents.html">Incidents</a>
-    <a href="awareness.html">Awareness</a>
-    <a href="about.html">About</a>
+    <a href="notes.html">Notes</a>
   </nav>
 
   <main class="layout">
@@ -28,7 +28,7 @@
     <section class="panel">
       <h2>Password Strength Checker</h2>
       <p class="muted">
-        Type a password to see how it would score against a basic policy.
+        Type a password to see how it scores against common attack patterns.
         Nothing is sent anywhere — this runs entirely in your browser.
       </p>
 
@@ -57,10 +57,46 @@
       <div id="report" class="output"></div>
     </section>
 
+    <section class="panel">
+      <h2>IP / URL Security Checker</h2>
+      <p class="muted">
+        Enter an IP address or a URL. The checker performs static analysis
+        in your browser: it identifies the type of address, flags suspicious
+        patterns, and gives a rough risk rating. No external requests are made.
+      </p>
+
+      <div class="field">
+        <label for="target">IP address or URL</label>
+        <input id="target" type="text" placeholder="e.g. 8.8.8.8 or https://example.com/login">
+      </div>
+
+      <button onclick="checkTarget()">Check</button>
+      <div id="targetReport" class="output"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Malware Analysis Simulator</h2>
+      <p class="muted">
+        Paste a suspicious filename or a fake MD5/SHA-256 hash. The simulator
+        produces a canned analysis report — file type guess, entropy, common
+        indicators, and a family profile. <strong>No files are executed and no
+        real malware is involved.</strong> This is an educational demo of what
+        a static analysis report looks like.
+      </p>
+
+      <div class="field">
+        <label for="sample">Filename or hash</label>
+        <input id="sample" type="text" placeholder="e.g. invoice.pdf.exe or 44d88612fea8a8f36de82e1278abb02f">
+      </div>
+
+      <button onclick="analyseSample()">Analyse</button>
+      <div id="malwareReport" class="output"></div>
+    </section>
+
   </main>
 
   <footer class="footer">
-    CyberShield is an educational simulation. No real systems are monitored.
+    CyberShield is a personal study project. All content is educational.
   </footer>
 
   <script src="script.js"></script>
